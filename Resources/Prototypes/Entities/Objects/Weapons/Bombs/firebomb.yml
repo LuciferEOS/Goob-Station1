@@ -52,6 +52,9 @@
   - type: Construction
     graph: FireBomb
     node: firebomb
+  - type: Tag # Goobstation - handmade c4 update
+    tags:
+    - FireBomb
 
 # has igniter but no fuel or wires
 - type: entity

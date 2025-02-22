@@ -561,6 +561,9 @@
   id: Fruit
 
 - type: Tag
+  id: FireBomb
+
+- type: Tag
   id: Galaxythistle
 
 - type: Tag

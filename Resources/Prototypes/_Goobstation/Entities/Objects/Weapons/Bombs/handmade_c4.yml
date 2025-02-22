@@ -1,0 +1,65 @@
+- type: entity
+  parent: FireBomb
+  id: FireBombC4
+  name: improvised C4
+  description: A more powerful, improvised explosive made from firebombs and adhesive.
+  components:
+  - type: OnUseTimerTrigger
+    delay: 5
+    examinable: false
+    initialBeepDelay: 1
+    beepSound:
+      path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+      params:
+        volume: 1
+  - type: RandomTimerTrigger
+    min: 2
+    max: 10
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 50
+    intensitySlope: 7
+    maxIntensity: 6
+    canCreateVacuum: false
+  - type: Construction
+    graph: FireBombC4Graph
+    node: firebombc4
+  - type: Sticky
+
+- type: constructionGraph
+  id: FireBombC4Graph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: components
+      steps:
+      - tag: FireBomb
+        name: a fire bomb
+        icon:
+          sprite: Objects/Weapons/Bombs/ied.rsi
+          state: base
+      - tag: FireBomb
+        name: a second fire bomb
+        icon:
+          sprite: Objects/Weapons/Bombs/ied.rsi
+          state: base
+      - material: Cable
+        amount: 15
+        doAfter: 2
+        name: 15 cables
+  - node: components
+    entity: FireBombC4
+
+- type: construction
+  name: improvised C4
+  id: firebombc4
+  graph: FireBombC4Graph
+  startNode: start
+  targetNode: components
+  category: construction-category-weapons
+  objectType: Item
+  description: A more powerful, improvised explosive made from firebombs and adhesive.
+  icon:
+    sprite: Objects/Weapons/Bombs/ied.rsi
+    state: icon
