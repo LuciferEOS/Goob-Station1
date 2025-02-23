@@ -19,6 +19,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Damage
 {
+
     public sealed class DamageableSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
