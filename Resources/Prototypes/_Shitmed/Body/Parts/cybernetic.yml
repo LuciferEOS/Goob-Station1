@@ -192,5 +192,20 @@
   - type: DoAfterDelayMultiplier
     multiplier: 0.8
 
+# Sci shitmed start
 
-
+- type: entity
+  parent: LeftArmCybernetic
+  id: BloodLeftArm # V2 hand from ultrakill real
+  name: blood red left arm
+  description: A cybernetic left arm made out of hard plasteel, great for breaking walls and bones.
+  components:
+  - type: BodyPart
+    onAdd:
+    - type: HandDamageModifier
+      applyToRightHand: false
+      damageBonus:
+        multiplier: 5
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "l_arm-combined"

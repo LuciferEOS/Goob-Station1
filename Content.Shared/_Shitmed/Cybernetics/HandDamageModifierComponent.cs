@@ -13,5 +13,9 @@ public sealed partial class HandDamageModifierComponent : Component
     public bool ApplyToRightHand = false;
 
     [DataField("damageBonus", required: true)]
+    [ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier DamageBonus = new();
+
+    [DataField("multiplier", required: true)]
+    public DamageSpecifier Multiplier = new();
 }

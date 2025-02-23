@@ -37,5 +37,11 @@ public sealed class HandDamageModifierSystem : EntitySystem
                 Dirty(uid, damageable);
             }
         }
+        if (shouldApply)
+        {
+            var damageMod = EnsureComp<HandDamageModifierComponent>(uid);
+            damageMod.Multiplier -= component.DamageBonus;
+            Dirty(uid, damageMod);
+        }
     }
 }
