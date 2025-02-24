@@ -1,0 +1,164 @@
+
+# this works, trust.
+# okay so heres the problem
+# this shit adds components when attached to a humanoid
+# but this stuff doesnt update them, and if humanoid has meleeweapon comp
+# the only way to update its values is to attach + remove + attach new limb, damn i love shitmed
+# oh and btw they dont stack
+- type: entity
+  parent: LeftArmCybernetic
+  id: HammerLeftArm
+  name: hammer left arm
+  description: A cybernetic left arm made out of hard plasteel, great for removing walls and faces.
+  components:
+  - type: BodyPart
+    baseLayerId: MobCyberneticV2ArmLeft
+    onAdd:
+    - type: MeleeThrowOnHit
+      speed: 5
+      lifetime: 0.5
+    - type: MeleeWeapon
+      angle: 0
+      damage:
+        types:
+          Blunt: 10
+          Structural: 30
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "l_arm-combined"
+
+- type: entity
+  id: HammerLeftHand
+  parent: LeftHandCybernetic
+  name: hammer left hand
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticV2HandLeft
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "l_hand"
+# AAAAAHHH I FUCKING HATE RIGHT ARMSSSSS
+# parent is fucking up surgery, so womp womp no fixing this shitcode :do:
+- type: entity
+  id: HammerRightArm
+  parent: RightArmCybernetic
+  name: hammer right arm
+  components:
+  - type: BodyPart
+    baseLayerId: MobCyberneticV2ArmRight
+    onAdd:
+    - type: MeleeThrowOnHit
+      speed: 5
+      lifetime: 0.5
+    - type: MeleeWeapon
+      angle: 0
+      damage:
+        types:
+          Blunt: 10
+          Structural: 15 # 15 structural for nothing is still busted tbh
+    - type: Sprite
+      sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+      state: "r_arm-combined"
+
+- type: entity
+  id: HammerRightHand
+  parent: RightHandCybernetic
+  name: hammer right hand
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticV2HandLeft
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "r_hand"
+
+- type: entity
+  id: DrillLeftArm
+  parent: LeftArmCybernetic
+  name: drill left arm
+  description: A simple drill arm, capable of, suprisingly, drilling, mostly rock.
+  components:
+  - type: BodyPart
+    baseLayerId: MobCyberneticDrillHandLeft
+    onAdd:
+     - type: Tag
+       tags:
+       - Pickaxe # i guess it should work like one
+     - type: MeleeWeapon
+       autoAttack: true
+       angle: 0
+       wideAnimationRotation: -90
+       soundHit:
+         path: "/Audio/Items/drill_hit.ogg"
+       attackRate: 4
+       heavyStaminaCost: 0
+       damage:
+         groups:
+           Brute: 3
+         types:
+           Structural: 15
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
+    state: "l_arm-combined"
+
+- type: entity
+  id: DrillLeftHand
+  parent: LeftHandCybernetic
+  name: drill left hand
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticDrillHandLeft
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
+    state: "l_hand"
+
+- type: entity
+  id: DrillRightArm
+  parent: RightArmCybernetic
+  description: A simple drill arm, capable of, suprisingly, drilling, mostly rock.
+  name: drill right arm
+  components:
+  - type: BodyPart
+    baseLayerId: MobCyberneticDrillHandRight
+    onAdd:
+     - type: Tag
+       tags:
+       - Pickaxe
+     - type: MeleeWeapon
+       autoAttack: true
+       angle: 0
+       wideAnimationRotation: -90
+       soundHit:
+         path: "/Audio/Items/drill_hit.ogg"
+       attackRate: 4
+       heavyStaminaCost: 0
+       damage:
+         groups:
+           Brute: 3
+         types:
+           Structural: 15
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
+    state: "r_arm-combined"
+
+- type: entity
+  id: DrillRightHand
+  parent: RightHandCybernetic
+  name: drill right hand
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticDrillHandRight
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
+    state: "r_hand"
