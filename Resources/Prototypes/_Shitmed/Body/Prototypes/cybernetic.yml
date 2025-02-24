@@ -22,7 +22,7 @@
       damage:
         types:
           Blunt: 10
-          Structural: 30
+          Structural: 15
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
     state: "l_arm-combined"
@@ -59,9 +59,9 @@
         types:
           Blunt: 10
           Structural: 15 # 15 structural for nothing is still busted tbh
-    - type: Sprite
-      sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
-      state: "r_arm-combined"
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "r_arm-combined"
 
 - type: entity
   id: HammerRightHand
@@ -84,7 +84,7 @@
   description: A simple drill arm, capable of, suprisingly, drilling, mostly rock.
   components:
   - type: BodyPart
-    baseLayerId: MobCyberneticDrillHandLeft
+    baseLayerId: MobCyberneticDrillArmLeft
     onAdd:
      - type: Tag
        tags:
@@ -127,7 +127,7 @@
   name: drill right arm
   components:
   - type: BodyPart
-    baseLayerId: MobCyberneticDrillHandRight
+    baseLayerId: MobCyberneticDrillArmRight
     onAdd:
      - type: Tag
        tags:
