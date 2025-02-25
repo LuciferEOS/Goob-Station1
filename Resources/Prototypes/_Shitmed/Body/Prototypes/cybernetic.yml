@@ -1,10 +1,4 @@
-
 # this works, trust.
-# okay so heres the problem
-# this shit adds components when attached to a humanoid
-# but this stuff doesnt update them, and if humanoid has meleeweapon comp
-# the only way to update its values is to attach + remove + attach new limb, damn i love shitmed
-# oh and btw they dont stack
 - type: entity
   parent: LeftArmCybernetic
   id: HammerLeftArm
@@ -26,6 +20,8 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
     state: "l_arm-combined"
+  - type: GenerateChildPart
+    id: HammerLeftHand
 
 - type: entity
   id: HammerLeftHand
@@ -62,6 +58,8 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
     state: "r_arm-combined"
+  - type: GenerateChildPart
+    id: HammerRightHand
 
 - type: entity
   id: HammerRightHand
@@ -105,6 +103,8 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
     state: "l_arm-combined"
+  - type: GenerateChildPart
+    id: DrillLeftHand
 
 - type: entity
   id: DrillLeftHand
@@ -148,6 +148,8 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
     state: "r_arm-combined"
+  - type: GenerateChildPart
+    id: DrillRightHand
 
 - type: entity
   id: DrillRightHand
@@ -162,3 +164,159 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
     state: "r_hand"
+
+- type: entity
+  id: InsulLeftArm
+  parent: LeftArmCybernetic
+  name: left insulated arm
+  description: Arent these arms insulated already?
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticInsulArmLeft
+    onAdd:
+    - type: Insulated
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
+    state: "l_arm-combined"
+  - type: GenerateChildPart
+    id: InsulLeftHand
+
+- type: entity
+  id: InsulLeftHand
+  parent: LeftHandCybernetic
+  name: left insulated hand
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobcyberneticInsulHandLeft
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
+    state: "l_hand"
+
+- type: entity
+  id: InsulRightArm
+  parent: RightArmCybernetic
+  name: right insulated arm
+  description: Arent these arms insulated already?
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticInsulArmRight
+    onAdd:
+    - type: Insulated
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
+    state: "r_arm-combined"
+  - type: GenerateChildPart
+    id: InsulRightHand
+
+- type: entity
+  id: InsulRightHand
+  parent: RightHandCybernetic
+  name: right insulated hand
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobcyberneticInsulHandRight
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
+    state: "r_hand"
+
+# legs
+
+- type: entity
+  id: MagLeftLeg
+  parent: LeftLegCybernetic
+  name: left magleg
+  description: Standart issued nanotrasen magboots integrated inside your legs.
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: MovementBodyPart
+    walkSpeed: 2
+    sprintSpeed: 4
+  - type: BodyPart
+    baseLayerId: MobCyberneticMagLegLeft
+    onAdd:
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+      mustEquip: false
+      disableOnUnequip: true
+    - type: ItemToggle
+      onUse: true
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
+    state: "l_leg-combined"
+  - type: GenerateChildPart
+    id: MagLeftFoot
+
+- type: entity
+  id: MagLeftFoot
+  parent: LeftFootCybernetic
+  name: left magfoot
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticMagFootLeft
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
+    state: "l_foot"
+
+- type: entity
+  id: MagRightLeg
+  parent: RightLegCybernetic
+  name: right magleg
+  description: Standart issued nanotrasen magboots integrated inside your legs.
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: MovementBodyPart
+    walkSpeed: 2
+    sprintSpeed: 4
+  - type: BodyPart
+    baseLayerId: MobCyberneticMagLegRight
+    onAdd:
+    - type: ComponentToggler
+      components:
+      - type: NoSlip
+    - type: Magboots
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+      mustEquip: false
+      disableOnUnequip: true
+    - type: ItemToggle
+      onUse: true
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
+    state: "r_leg-combined"
+  - type: GenerateChildPart
+    id: MagRightFoot
+
+- type: entity
+  id: MagRightFoot
+  parent: RightFootCybernetic
+  name: right magfoot
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticMagFootRight
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
+    state: "r_foot"

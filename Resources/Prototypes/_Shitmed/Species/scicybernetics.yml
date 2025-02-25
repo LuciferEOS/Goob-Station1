@@ -1,0 +1,97 @@
+- type: humanoidBaseSprite
+  id: MobCyberneticV2ArmLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "l_arm-combined"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticV2HandLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "l_hand"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticV2HandRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "r_hand"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticV2ArmRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
+    state: "r_arm-combined"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticDrillHandLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
+    state: "l_hand"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticDrillArmLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
+    state: "l_arm-combined"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticDrillArmRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
+    state: "r_arm-combined"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticDrillHandRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/drillhand.rsi
+    state: "r_hand"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticInsulArmRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
+    state: "r_arm-combined"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticInsulHandRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
+    state: "r_hand"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticInsulArmLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
+    state: "l_arm-combined"
+
+- type: humanoidBaseSprite
+  id: MobcyberneticInsulHandLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
+    state: "l_hand"
+
+# legs
+
+- type: humanoidBaseSprite
+  id: MobCyberneticMagLegLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
+    state: "l_leg-combined"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticMagFootLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
+    state: "l_foot"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticMagLegRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
+    state: "r_leg-combined"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticMagFootRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
+    state: "r_foot"
