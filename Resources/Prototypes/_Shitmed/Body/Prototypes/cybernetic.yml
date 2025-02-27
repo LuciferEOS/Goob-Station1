@@ -54,7 +54,7 @@
       damage:
         types:
           Blunt: 10
-          Structural: 15 # 15 structural for nothing is still busted tbh
+          Structural: 15
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
     state: "r_arm-combined"

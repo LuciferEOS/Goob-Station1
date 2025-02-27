@@ -1,0 +1,45 @@
+# Why not make it through parent? i dont want players to dupe it through putting it into their suitstorage slots
+# and i have no idea how to fix that other than modify-ing base_pka.yml
+# which i dont think is a good idea
+- type: entity
+  id: HandProtoKinetic
+  parent: BaseItem
+  name: hand protokinetic accelerator
+  description: Self recharging protokinetic accelerator hand, perfect for mining, dual wielding not included.
+  suffix: Unremoveable
+  components:
+  - type: Sprite
+    sprite: _Shitmed\Objects\Weapons\Guns\Battery\cybernetics.rsi
+    state: icon-hand-proto
+  - type: Unremoveable
+  - type: DisarmMalus
+    malus: 0
+  - type: Item
+    size: Ginormous
+    sprite: _Shitmed\Objects\Weapons\Guns\Battery\cybernetics.rsi
+  - type: Gun
+    fireRate: 0.7 #goobstation
+    selectedMode: SemiAuto
+    angleDecay: 45 # TODO
+    minAngle: 44 # TODO
+    maxAngle: 45 # TODO
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: AmmoCounter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.65 #Goobstation
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletKinetic
+    capacity: 1
+    count: 1
