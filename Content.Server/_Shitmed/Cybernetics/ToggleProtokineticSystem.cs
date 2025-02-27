@@ -1,9 +1,8 @@
 using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared._Shitmed.Cybernetics;
 using Content.Shared.Popups;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.Toggleable;
 
 namespace Content.Server._Shitmed.Cybernetics;
 
@@ -12,39 +11,57 @@ public sealed class ToggleProtokineticSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ToggleProtokineticComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<ToggleProtokineticComponent, ToggleProtoKineticActionEvent>(OnActionUsed);
+        SubscribeLocalEvent<ToggleProtokineticComponent, ToggleActionEvent>(OnActionUsed);
     }
 
     private void OnStartup(EntityUid uid, ToggleProtokineticComponent comp, ComponentStartup args)
     {
+        _actions.AddAction(uid, ref comp.ToggleActionEntity, comp.ToggleAction);
+
         if (string.IsNullOrEmpty(comp.ToggleAction))
             return;
-
-        _actions.AddAction(uid, ref comp.ToggleActionEntity, comp.ToggleAction);
     }
 
-    private void OnActionUsed(EntityUid uid, ToggleProtokineticComponent comp, ToggleProtoKineticActionEvent args)
+    private void OnActionUsed(EntityUid uid, ToggleProtokineticComponent comp, ToggleActionEvent args)
     {
-        if (string.IsNullOrEmpty(comp.ItemPrototype))
+        if (string.IsNullOrEmpty(comp.ItemPrototype) || !_protoMan.HasIndex(comp.ItemPrototype))
         {
             _popup.PopupEntity(Loc.GetString("mechanism-no-item"), uid, uid);
             return;
         }
+
         if (!TryComp<TransformComponent>(uid, out var transform))
             return;
+
+        // check if we have that item in the hands
+        if (comp.SpawnedItem.IsValid() && _handsSystem.IsHolding(uid, comp.SpawnedItem))
+        {
+            _handsSystem.TryDrop(uid, comp.SpawnedItem, checkActionBlocker: false);
+            EntityManager.DeleteEntity(comp.SpawnedItem);
+            comp.SpawnedItem = EntityUid.Invalid;
+            return;
+        }
 
         if (!_handsSystem.TryGetEmptyHand(uid, out var emptyHand))
         {
             _popup.PopupEntity(Loc.GetString("mechanism-no-hand"), uid, uid);
             return;
         }
+
         var item = EntityManager.SpawnEntity(comp.ItemPrototype, transform.Coordinates);
-        _handsSystem.TryPickup(uid, item, emptyHand);
+        if (!_handsSystem.TryPickup(uid, item, emptyHand))
+        {
+            EntityManager.DeleteEntity(item);
+            return;
+        }
+
+        comp.SpawnedItem = item;
     }
 }
 /// <summary>

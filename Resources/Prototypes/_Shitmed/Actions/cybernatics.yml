@@ -10,21 +10,4 @@
     icon:
       sprite: _Shitmed\Objects\Weapons\Guns\Battery\cybernetics.rsi
       state: icon-hand-proto
-    event: !type:ToggleProtoKineticActionEvent
-
-- type: entity
-  id: TestHandProto
-  name: TestHandProto
-  parent: LeftArmCybernetic
-  components:
-  - type: Cybernetics
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
-    state: "r_arm-combined"
-  - type: Damageable
-    damageContainer: Silicon
-  - type: BodyPart
-    baseLayerId: MobCyberneticInsulArmRight
-    onAdd:
-    - type: ToggleProtokinetic
-
+    event: !type:ToggleActionEvent

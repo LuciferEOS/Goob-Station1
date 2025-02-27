@@ -70,6 +70,30 @@
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
     state: "l_hand"
 
+- type: humanoidBaseSprite
+  id: MobCyberneticProtoArmRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/protohand.rsi
+    state: "r_arm-combined"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticProtoHandRight
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/protohand.rsi
+    state: "r_hand"
+
+- type: humanoidBaseSprite
+  id: MobCyberneticProtoArmLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/protohand.rsi
+    state: "l_arm-combined"
+
+- type: humanoidBaseSprite
+  id: MobcyberneticProtoHandLeft
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/protohand.rsi
+    state: "l_hand"
+
 # legs
 
 - type: humanoidBaseSprite

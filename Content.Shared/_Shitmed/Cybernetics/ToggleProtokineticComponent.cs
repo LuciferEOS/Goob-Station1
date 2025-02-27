@@ -14,5 +14,8 @@ public sealed partial class ToggleProtokineticComponent : Component
 
     [DataField, AutoNetworkedField]
     public string? ItemPrototype = "HandProtoKinetic";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid SpawnedItem = EntityUid.Invalid;
 }
 

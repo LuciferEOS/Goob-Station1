@@ -1,6 +1,6 @@
 # this works, trust.
 - type: entity
-  parent: LeftArmCybernetic
+  parent: LeftArmCyberneticBase
   id: HammerLeftArm
   name: hammer left arm
   description: A cybernetic left arm made out of hard plasteel, great for removing walls and faces.
@@ -40,7 +40,7 @@
 # parent is fucking up surgery, so womp womp no fixing this shitcode :do:
 - type: entity
   id: HammerRightArm
-  parent: RightArmCybernetic
+  parent: RightArmCyberneticBase
   name: hammer right arm
   components:
   - type: BodyPart
@@ -69,7 +69,7 @@
   - type: Damageable
     damageContainer: Silicon
   - type: BodyPart
-    baseLayerId: MobCyberneticV2HandLeft
+    baseLayerId: MobCyberneticV2HandRight
   - type: Cybernetics
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/bloodhand.rsi
@@ -77,7 +77,7 @@
 
 - type: entity
   id: DrillLeftArm
-  parent: LeftArmCybernetic
+  parent: LeftArmCyberneticBase
   name: drill left arm
   description: A simple drill arm, capable of, suprisingly, drilling, mostly rock.
   components:
@@ -122,7 +122,7 @@
 
 - type: entity
   id: DrillRightArm
-  parent: RightArmCybernetic
+  parent: RightArmCyberneticBase
   description: A simple drill arm, capable of, suprisingly, drilling, mostly rock.
   name: drill right arm
   components:
@@ -167,7 +167,7 @@
 
 - type: entity
   id: InsulLeftArm
-  parent: LeftArmCybernetic
+  parent: LeftArmCyberneticBase
   name: left insulated arm
   description: Arent these arms insulated already?
   components:
@@ -199,7 +199,7 @@
 
 - type: entity
   id: InsulRightArm
-  parent: RightArmCybernetic
+  parent: RightArmCyberneticBase
   name: right insulated arm
   description: Arent these arms insulated already?
   components:
@@ -229,11 +229,77 @@
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/insulhand.rsi
     state: "r_hand"
 
+- type: entity
+  id: ProtoRightArm
+  parent: RightArmCyberneticBase
+  name: proto kinetic right arm
+  description: A powerfull, short ranged PKA, integrated inside your hand!
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticProtoArmRight
+    onAdd:
+    - type: ToggleProtokinetic
+      toggleAction: ActionToggleProtoKinetic
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/protohand.rsi
+    state: "r_arm-combined"
+  - type: GenerateChildPart
+    id: ProtoRightHand
+
+- type: entity
+  id: ProtoRightHand
+  parent: RightHandCybernetic
+  name: right kinetic right hand
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticProtoHandRight
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/protohand.rsi
+    state: "r_hand"
+
+- type: entity
+  id: ProtoLeftArm
+  parent: LeftArmCyberneticBase
+  name: proto kinetic left arm
+  description: A powerfull, short ranged PKA, integrated inside your hand!
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobCyberneticProtoArmLeft
+    onAdd:
+    - type: ToggleProtokinetic
+      toggleAction: ActionToggleProtoKinetic
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/protohand.rsi
+    state: "l_arm-combined"
+  - type: GenerateChildPart
+    id: ProtoLeftHand
+
+- type: entity
+  id: ProtoLeftHand
+  parent: LeftHandCybernetic
+  name: right kinetic left hand
+  components:
+  - type: Damageable
+    damageContainer: Silicon
+  - type: BodyPart
+    baseLayerId: MobcyberneticProtoHandLeft
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/protohand.rsi
+    state: "l_hand"
+
 # legs
 
 - type: entity
   id: MagLeftLeg
-  parent: LeftLegCybernetic
+  parent: LeftLegCyberneticBase
   name: left magleg
   description: Standart issued nanotrasen magboots integrated inside your legs.
   components:
@@ -278,7 +344,7 @@
 
 - type: entity
   id: MagRightLeg
-  parent: RightLegCybernetic
+  parent: RightLegCyberneticBase
   name: right magleg
   description: Standart issued nanotrasen magboots integrated inside your legs.
   components:
