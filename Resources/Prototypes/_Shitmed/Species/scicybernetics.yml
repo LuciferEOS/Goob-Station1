@@ -119,3 +119,11 @@
   baseSprite:
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
     state: "r_foot"
+
+# head
+
+- type: humanoidBaseSprite
+  id: MobCyberneticIPCHeadFire
+  baseSprite:
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/ipcheads.rsi
+    state: "head_m-fire"

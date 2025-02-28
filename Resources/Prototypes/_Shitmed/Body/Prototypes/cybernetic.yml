@@ -386,3 +386,36 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/magleg.rsi
     state: "r_foot"
+
+# eyes and heads
+# there is seceyes in cybernetics.yml for some reason, so i dont think creating a new pair of those would be a good idea
+- type: entity
+  id: WelderEyes
+  parent: BaseCyberneticEyes
+  name: welder eyes
+  description: A special pair of eyes, that allow its user to weld without a welding mask.
+  components:
+  - type: Organ
+    onAdd:
+    - type: EyeProtection
+
+- type: entity
+  parent: [ PartIPCBase, BaseHead ]
+  id: HeadFireresIPC
+  name: "ipc fire resistance head"
+  description: Simple IPC head with an additional layer of steel to it that reduces heat transfer.
+  components:
+  - type: BodyPart
+    baseLayerId: MobCyberneticIPCHeadFire
+    organs: # posibrain is stored in the torso
+      eyes:
+        id: "eyes"
+    onAdd:
+    - type: TemperatureProtection
+      heatingCoefficient: 0.005
+      coolingCoefficient: 0.1
+    - type: FireProtection
+      reduction: 0.25 # still better than nothing
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Cybernetics/ipcheads.rsi
+    state: "head_m-fire"
