@@ -27,12 +27,12 @@ public sealed class ToggleProtokineticSystem : EntitySystem
         if (string.IsNullOrEmpty(comp.ToggleAction))
             return;
     }
-
+    // Im sorry.
     private void OnActionUsed(EntityUid uid, ToggleProtokineticComponent comp, ToggleActionEvent args)
     {
         if (string.IsNullOrEmpty(comp.ItemPrototype) || !_protoMan.HasIndex(comp.ItemPrototype))
         {
-            _popup.PopupEntity(Loc.GetString("mechanism-no-item"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("cuffable-component-cannot-interact-message"), uid, uid);
             return;
         }
 
@@ -50,7 +50,7 @@ public sealed class ToggleProtokineticSystem : EntitySystem
 
         if (!_handsSystem.TryGetEmptyHand(uid, out var emptyHand))
         {
-            _popup.PopupEntity(Loc.GetString("mechanism-no-hand"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("wieldable-component-no-hands"), uid, uid);
             return;
         }
 

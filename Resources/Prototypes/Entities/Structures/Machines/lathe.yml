@@ -704,6 +704,17 @@
     - DexLeftHand
     - DexRightHand
     - BasicCyberneticEyes
+    # Shitmed change 2
+    - DrillLeftArm
+    - DrillRightArm
+    - InsulRightArm
+    - InsulLeftArm
+    - ProtoRightArm
+    - ProtoLeftArm
+    - MagLeftLeg
+    - MagRightLeg
+    - WelderEyes
+    - HeadFireresIPC
     # Goobstation - Mechs
     - ClarkeHarness
     - ClarkeHead

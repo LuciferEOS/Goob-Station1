@@ -14,6 +14,7 @@ research-technology-power-generation = Power Generation
 research-technology-atmospheric-tech = Atmospherics
 research-technology-shuttlecraft = Shuttlecraft
 research-technology-ripley-aplu = Ripley APLU
+research-technology-salvage-cybernetics = Salvage cybernetics
 research-technology-advanced-atmospherics = Advanced Atmospherics
 research-technology-advanced-tools = Advanced Tools
 research-technology-super-powercells = Super Powercells

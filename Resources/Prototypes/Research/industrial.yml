@@ -123,6 +123,27 @@
 
 # Tier 2
 
+- type: technology # Goobstation - sci shitmed update
+  id: Salvage cybernetics
+  name: research-technology-salvage-cybernetics
+  icon:
+    sprite: _Shitmed/Objects/Weapons\Guns/Battery/cybernetics.rsi
+    state: icon-hand-proto
+  discipline: Industrial
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - DrillLeftArm
+  - DrillRightArm
+  - InsulRightArm
+  - InsulLeftArm
+  - ProtoRightArm
+  - ProtoLeftArm
+  - MagLeftLeg
+  - MagRightLeg
+  - WelderEyes
+  - HeadFireresIPC
+
 - type: technology
   id: Shuttlecraft
   name: research-technology-shuttlecraft
