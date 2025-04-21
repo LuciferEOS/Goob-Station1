@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "sprited by @LuciferMkshelter for Goobstation",
+    "size": {
+      "x": 64,
+      "y": 64
+    },
+    "states": [
+      {
+        "name": "icon"
+      },
+      {
+        "name": "state_1",
+        "directions": 4,
+        "offsets": {
+          "north": [0, 0],
+          "south": [64, 0],
+          "west": [0, 32],
+          "east": [32, 32]
+        }
+      }
+    ]
+  }
