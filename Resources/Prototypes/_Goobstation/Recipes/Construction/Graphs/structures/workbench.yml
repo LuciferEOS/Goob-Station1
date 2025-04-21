@@ -1,0 +1,55 @@
+- type: constructionGraph
+  id: WorkbenchConstructionGraph
+  start: start
+  graph:
+    - node: start
+      entity: StructureBoard
+      edges:
+        - to: workbench
+          steps:
+            - material: WoodPlank
+              amount: 15
+              doAfter: 2
+            - material: MetalRod
+              amount: 8
+              doAfter: 2
+            - material: Cloth
+              amount: 4
+              doAfter: 2
+
+    - node: workbench
+      entity: WorkbenchSmall
+      edges:
+        - to: start
+          steps:
+            - tool: Wrench
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: WoodPlank
+              amount: 10
+            - !type:SpawnPrototype
+              prototype: MetalRod
+              amount: 4
+            - !type:SpawnPrototype
+              prototype: Cloth
+              amount: 2
+            - !type:DeleteEntity
+
+- type: construction
+  name: Workbench
+  id: BuildWorkbench
+  graph: WorkbenchConstructionGraph
+  startNode: start
+  targetNode: workbench
+  category: construction-category-structures
+  description: A handcrafted workbench to make fairly advanced stuff.
+  conditions:
+    - !type:TileNotBlocked
+      failIfSpace: false
+  icon:
+    sprite: _Goobstation/Structures/Specific/workbench.rsi
+    state: icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true

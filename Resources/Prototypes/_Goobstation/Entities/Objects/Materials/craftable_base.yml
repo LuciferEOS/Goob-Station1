@@ -1,0 +1,62 @@
+- type: entity
+  id: CraftingSmallMetalBase
+  name: small metal base
+  description: A bunch of metal rods welded together. You can only imagine what you can do with this.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/workbench_bases.rsi
+    state: icon_smetal_base
+  - type: Item
+    size: Small
+  - type: MeleeWeapon # its welded metal rods lol
+    animationRotation: -135
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 4
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  id: CraftingMediumMetalBase
+  parent: BaseItem
+  name: metal base
+  description: Rods and metal welded together. Can be used in making advanced killing stuff.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/workbench_bases.rsi
+    state: icon_mmetal_base
+  - type: Item
+    size: Normal
+  - type: MeleeWeapon
+    animationRotation: -135
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 8 # shouldnt be a weapon but still, its heavy metal
+
+- type: entity
+  id: CraftingBigMetalBase
+  parent: BaseItem
+  name: big metal base
+  description: A heavy piece of metal, that can be used in crafting advanced tide-grade things.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/workbench_bases.rsi
+    state: icon_bmetal_base
+  - type: MeleeWeapon
+    animationRotation: -135
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 12 # toolbox - like
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
+  - type: Item
+    size: Ginormous
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier

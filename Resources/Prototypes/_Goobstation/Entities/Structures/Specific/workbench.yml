@@ -1,0 +1,42 @@
+- type: entity
+  id: WorkbenchBase
+  parent: BaseStructure
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Structures/Specific/workbench.rsi
+      state: state_1
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.8,-0.45,0.8,0.45"
+          density: 60
+          mask:
+          - MachineMask
+          layer:
+          - MidImpassable
+          - LowImpassable
+    - type: Damageable
+    - type: Clickable
+    - type: Construction
+      graph: WorkbenchConstructionGraph
+      node: start
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WindowShatter
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  id: WorkbenchSmall
+  parent: WorkbenchBase
+  name: workbench
+  description: A handcrafted workbench to make fairly advanced stuff.
