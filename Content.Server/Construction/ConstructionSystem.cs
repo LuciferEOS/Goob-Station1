@@ -49,6 +49,8 @@ using JetBrains.Annotations;
 using Robust.Server.Containers;
 using Robust.Shared.Random;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
+using Content.Shared.Construction.Prototypes;  // Goob
+using Content.Goobstation.Shared.Construction; // Goob
 
 namespace Content.Server.Construction
 {
@@ -132,5 +134,23 @@ namespace Content.Server.Construction
 
             UpdateInteractions();
         }
+        // Goobstation start
+        private bool CheckWorkbenchRequirement(EntityUid user, ConstructionPrototype prototype)
+        {
+            if (!prototype.RequireWorkbench)
+                return true;
+
+            var query = EntityQueryEnumerator<WorkbenchComponent>();
+            while (query.MoveNext(out var uid, out var workbench))
+            {
+                if (Transform(uid).Coordinates.InRange(EntityManager, Transform(user).Coordinates,
+                    workbench.MaterialSearchRadius)
+                    && workbench.AllowedRecipes.Contains(prototype.ID))
+                {
+                    return true;
+                }
+            }
+            return false;
+        } // Goobstation end
     }
 }

@@ -1,0 +1,28 @@
+- type: construction
+  id: SmallMetalBaseRecipe
+  name: Small Metal Base
+  description: Weld 4 metal rods together to create a small metal base.
+  graph: SmallMetalBaseGraph
+  startNode: start
+  targetNode: icon
+  category: construction-category-weapons
+  icon:
+    sprite: _Goobstation/Objects/Materials/workbench_bases.rsi
+    state: icon_smetal_base
+  objectType: Item
+
+- type: constructionGraph
+  id: SmallMetalBaseGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: icon
+          steps:
+            - material: MetalRod
+              amount: 4
+              tool: Welding
+              doAfter: 3
+              sound: /Audio/Items/welder.ogg
+    - node: icon
+      entity: CraftingSmallMetalBase

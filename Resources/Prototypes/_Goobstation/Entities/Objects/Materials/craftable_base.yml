@@ -17,6 +17,9 @@
         Slash: 4
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: Construction
+    graph: SmallMetalBaseGraph
+    node: start
 
 - type: entity
   id: CraftingMediumMetalBase

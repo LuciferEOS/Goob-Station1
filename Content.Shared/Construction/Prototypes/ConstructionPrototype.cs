@@ -128,6 +128,9 @@ public sealed partial class ConstructionPrototype : IPrototype
     [DataField("mirror", customTypeSerializer: typeof(PrototypeIdSerializer<ConstructionPrototype>))]
     public string? Mirror;
 
+    [DataField] // Goobstation
+    public bool RequireWorkbench { get; private set; } // Goobstation
+
     public IReadOnlyList<IConstructionCondition> Conditions => _conditions;
     public IReadOnlyList<SpriteSpecifier> Layers => _layers ?? new List<SpriteSpecifier> { Icon };
 }
