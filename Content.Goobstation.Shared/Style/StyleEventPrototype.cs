@@ -7,10 +7,10 @@ namespace Content.Goobstation.Shared.Style
     {
         [IdDataField] public string ID { get; } = default!;
 
-        [DataField("points")]
+        [DataField]
         public float Points;
 
-        [DataField("description")]
+        [DataField]
         public string Description = string.Empty;
     }
 }

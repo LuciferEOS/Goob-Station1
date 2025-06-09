@@ -17,7 +17,6 @@ namespace Content.Goobstation.Client.Style
         {
             MinWidth = 200;
 
-            // Основной контейнер
             var container = new PanelContainer
             {
                 PanelOverride = new StyleBoxFlat
@@ -37,7 +36,6 @@ namespace Content.Goobstation.Client.Style
                 Margin = new Thickness(5)
             };
 
-            // Заголовок
             var header = new BoxContainer
             {
                 Orientation = BoxContainer.LayoutOrientation.Horizontal,
@@ -55,7 +53,7 @@ namespace Content.Goobstation.Client.Style
 
             var title = new Label
             {
-                Text = "СТИЛЬ",
+                Text = "STYLE",
                 FontColorOverride = Color.White,
                 VerticalAlignment = VAlignment.Center
             };
@@ -64,7 +62,6 @@ namespace Content.Goobstation.Client.Style
             header.AddChild(title);
             content.AddChild(header);
 
-            // Разделитель
             content.AddChild(new PanelContainer
             {
                 PanelOverride = new StyleBoxFlat { BackgroundColor = Color.Gray },
@@ -72,7 +69,6 @@ namespace Content.Goobstation.Client.Style
                 Margin = new Thickness(0, 5)
             });
 
-            // Создаем 5 пустых лейблов для событий
             for (var i = 0; i < 5; i++)
             {
                 var eventLabel = new Label
@@ -90,11 +86,9 @@ namespace Content.Goobstation.Client.Style
 
         public void UpdateStyleHud(StyleRank rank, float multiplier, List<string> events)
         {
-            // Обновляем ранг
             _rankLabel.Text = rank.ToString();
             _rankLabel.FontColorOverride = GetRankColor(rank);
 
-            // Обновляем события
             for (var i = 0; i < 5; i++)
             {
                 var label = _eventLabels[i];
