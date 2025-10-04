@@ -1,0 +1,37 @@
+# nija
+- type: entity
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Mobs/Hustlers/ninja.rsi
+      state: base
+  - type: Appearance
+  - type: HustleAction
+  - type: Hustler
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      1: 1 # to overwrite the shit idk
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1: Dead
+  - type: MobPrice
+    price: 0 # bugs yay
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:BurnBodyBehavior
+        recursive: false
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 0.01
+  id: HustlerNinjaPaper
+  name: ninja hustler
+  parent:
+  - SimpleSpaceMobBase
+  - Paper # cursed
+  description: The creature of pure hatred, its only purpose in its existence is to hustle against other hustlers to prove that he is worthy of death.

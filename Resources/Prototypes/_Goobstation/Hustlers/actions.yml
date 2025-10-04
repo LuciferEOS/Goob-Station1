@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseAction
+  id: ActionHustle
+  name: HUSTLE
+  description: Show your opponent who is the boss!
+  components:
+  - type: Action
+    useDelay: 3
+    priority: -9
+    icon:
+      sprite: _Goobstation/Mobs/Hustlers/ninja.rsi
+      state: hustle # cursed
+    itemIconStyle: NoItem
+  - type: InstantAction
+    event: !type:HustleActionEvent

@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Inspiration taken from 'Your Only Move Is Hustle', sprited by @LuciferEOS",
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "hustle",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1, 0.2, 0.2, 0.8] ]
+        }
+    ]
+}
