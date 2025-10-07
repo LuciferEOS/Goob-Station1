@@ -1,0 +1,182 @@
+# covers everything bloodmachine related cuz its (sorta) small antag
+- type: entity
+  id: MobBloodMachine
+  parent: PlayerSiliconHumanoidBase # not parented from MobIPC because of fuckass battery and shit
+  name: blood machine
+  description: A positronic brain in a metal body.
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - IpcFirst
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
+  - type: EncryptionHolderRequiresLock
+  - type: StandingState
+  - type: Damageable
+    damageContainer: SiliconRadiation
+    damageModifierSet: IPC
+  - type: Armor
+    coverage:
+    - Chest
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
+  - type: TypingIndicator
+    proto: robot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+      - !type:GibBehavior { }
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      80: 0.7
+      90: 0.5
+  - type: SiliconDownOnDead
+  - type: Inventory
+    templateId: ipc
+  - type: EncryptionKeyHolder
+    keySlots: 1
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+    keysUnlocked: false
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: DeadStartupButton
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Silicon/startup.ogg
+  - type: EmitBuzzWhileDamaged
+  - type: DamagedSiliconAccent
+  - type: Uncloneable
+  - type: Sprinter
+    sprintSpeedMultiplier: 1.2
+  - type: Tag
+    tags: [ SiliconMob, SiliconEmotes, CanPilot, FootstepSound, DoorBumpOpener ]
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Heat: 0.20 # 300~ seconds before death
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: FlashImmunity
+  - type: Physics
+    bodyStatus: InAir
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 4.5
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+  - type: RadarConsole
+    followEntity: false
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 14
+        Structural: 25 # fucking death machine
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
+    canWideSwing: false
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [ Touch, Ingestion ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Blood ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreBlockers: true
+        splitDamage: SplitEnsureAll
+        damage:
+          groups:
+            Burn: -10
+            Brute: -5
+          types:
+            Radiation: -20 # boo
+
+- type: entity
+  parent: BaseSurviveObjective
+  id: BloodMachineSurviveObjective
+  name: SURVIVE
+  description: KEEP YOURSELF ALIVE. AT ALL COSTS. BLOOD IS FUEL.
+  components:
+  - type: Objective
+    icon:
+      sprite: Interface/Alerts/bleed.rsi/bleed.rsi
+      state: bleed10
+    difficulty: 6.5 # doesnt do anything
+    issuer: INTERNAL PROGRAMMING
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostBloodMachine
+  components:
+  - type: GhostRole
+    name: ghost-role-information-blood-machine-name
+    description: ghost-role-information-blood-machine-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 180000 #50 hours
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Interface/Alerts/bleed.rsi/bleed.rsi
+      state: bleed10

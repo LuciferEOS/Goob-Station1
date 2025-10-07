@@ -48,3 +48,38 @@
       max: 1
       pickPlayer: false
 
+- type: entity
+  parent: BaseGameRule
+  id: BloodMachineSpawn
+  components:
+  - type: StationEvent
+    weight: 4 # same as ninja but higher
+    duration: null
+    earliestStart: 30
+    maxOccurrences: 1
+    minimumPlayers: 50
+    chaos:
+      Hostile: 40
+      Combat: 40
+      Death: 40
+      Medical: 40
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 300
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagObjectives
+    objectives:
+    - BloodMachineSurviveObjective
+  - type: AntagSpawner
+    prototype: MobBloodMachine
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostBloodMachine
+      min: 1
+      max: 1
+      pickPlayer: false
+      briefing:
+        text: blood-machine-greeting
+        color: DarkRed
+        sound: /Audio/_Goobstation/AntagGreeters/Bloodmachine/bloodmachine-greeting.ogg
