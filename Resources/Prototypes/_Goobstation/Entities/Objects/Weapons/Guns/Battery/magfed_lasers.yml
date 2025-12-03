@@ -253,3 +253,23 @@
   - type: Tag
     tags:
     - LaserLMG
+
+- type: entity
+  parent: [BaseItem, BaseSecurityContraband]
+  id: WeaponLaserLg5
+  name: LG-5 Laser Carbine
+  description: A compact and lightweight laser carbine manufactured by Shellguard Munitions Co. Considered the most widely used laserarm in the Orion sector, it only fires lethal rounds and requires a recharger to reload.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lg5.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: laser
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: laser_charge4
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: laser_charge
+    steps: 4
+    zeroVisible: true
