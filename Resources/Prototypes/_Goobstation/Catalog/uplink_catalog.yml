@@ -1050,6 +1050,27 @@
     Telecrystal: 40
   categories:
   - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkAutosurgeonRecoilAbsorberNukie
+  name: uplink-autosurgeon-recoil-absorbing-name
+  description: uplink-autosurgeon-recoil-absorbing-desc
+  icon: { sprite: Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  productEntity: AutosurgeonRecoilAbsorber
+  cost:
+    Telecrystal: 99
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkAutosurgeonBerserkerHeart
