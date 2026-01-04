@@ -1,0 +1,22 @@
+- type: entity
+  id: Nunchucks
+  parent: [BaseItem, BaseSyndicateContraband]
+  name: syndie fitness nunchuks
+  description: The most common fitness equipment in the entire syndicate, titanium rods weigh strictly six and a half pounds each.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/nunchucks.rsi
+    state: icon
+  - type: HeldGrantComponent
+    components:
+    - type: Ripostee # todo doesnt work
+  - type: MeleeWeapon
+    canWideSwing: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 16
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/_Goobstation/Heretic/parry.ogg
